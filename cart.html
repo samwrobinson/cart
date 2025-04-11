@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        /* Main container styling */
+        #fc {
+          font-family: 'Roboto', Arial, sans-serif !important;
+          color: #474544 !important;
+          background-color: #F8F7F3 !important;
+        }
+        
+        /* Main form container */
+        .fc-checkout, .fc-cart {
+          background-color: #F8F7F3 !important;
+        }
+        
+        /* Step numbers (circles with numbers) */
+        .fc-checkout-step-number {
+          background-color: #B36008 !important;
+          color: white !important;
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          border: none !important;
+        }
+        
+        /* Step labels (Your Email, Your Billing Address, etc.) */
+        .fc-checkout-step-label {
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          color: #1a1a1a !important;
+          font-size: 1.3em !important;
+        }
+        
+        /* All form inputs */
+        #fc input[type="text"],
+        #fc input[type="email"],
+        #fc input[type="tel"],
+        #fc input[type="password"],
+        #fc input[type="number"],
+        #fc select,
+        #fc textarea,
+        #fc .fc-form-control {
+          border-radius: 8px !important;
+          border: 1px solid #CFD0D1 !important;
+          padding: 12px !important;
+          background-color: white !important;
+          font-family: 'Roboto', Arial, sans-serif !important;
+          box-shadow: none !important;
+        }
+        
+        /* Input focus states */
+        #fc input:focus, 
+        #fc select:focus, 
+        #fc textarea:focus {
+          border-color: #B36008 !important;
+          box-shadow: 0 0 0 2px rgba(179, 96, 8, 0.2) !important;
+          outline: none !important;
+        }
+        
+        /* Form labels */
+        #fc label {
+          font-family: 'Roboto', Arial, sans-serif !important;
+          color: #474544 !important;
+          font-weight: normal !important;
+        }
+        
+        /* Right side cart summary */
+        #fc .fc-cart-summary,
+        #fc .fc-checkout-summary {
+          background-color: #e7e7e8 !important;
+          border-radius: 0 !important;
+        }
+        
+        /* Cart summary header */
+        #fc .fc-cart-summary > div:first-child,
+        #fc .fc-cart-header {
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          color: #1a1a1a !important;
+          font-size: 1.2em !important;
+        }
+        
+        /* Individual cart items */
+        #fc .fc-cart-item {
+          background-color: white !important;
+          border-radius: 8px !important;
+          margin-bottom: 10px !important;
+          padding: 10px !important;
+          border: 1px solid #e0e0e0 !important;
+        }
+        
+        /* Product titles in cart */
+        #fc .fc-cart-item-title {
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          color: #1a1a1a !important;
+        }
+        
+        /* Product pricing */
+        #fc .fc-cart-item-price, 
+        #fc .fc-cart-summary-value, 
+        #fc .fc-cart-total-value {
+          color: #B36008 !important;
+          font-weight: bold !important;
+        }
+        
+        /* Continue shopping button */
+        #fc .fc-continue-shopping {
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          color: #7997A1 !important;
+          border: 1px solid #7997A1 !important;
+          background-color: transparent !important;
+          border-radius: 8px !important;
+          padding: 8px 16px !important;
+          transition: background-color 0.3s, color 0.3s !important;
+          text-transform: none !important;
+        }
+        
+        #fc .fc-continue-shopping:hover {
+          background-color: #1a1a1a !important;
+          color: white !important;
+          border-color: #1a1a1a !important;
+        }
+        
+        /* Primary action buttons */
+        #fc .fc-btn-primary,
+        #fc button[type="submit"],
+        #fc .fc-checkout-action {
+          background-color: #7997A1 !important;
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          color: white !important;
+          border: none !important;
+          border-radius: 8px !important;
+          padding: 12px 24px !important;
+          transition: all 0.3s !important;
+          text-transform: none !important;
+          box-shadow: none !important;
+        }
+        
+        #fc .fc-btn-primary:hover,
+        #fc button[type="submit"]:hover,
+        #fc .fc-checkout-action:hover {
+          background-color: #000000 !important;
+          color: #B36008 !important;
+        }
+        
+        /* Quantity inputs */
+        #fc .fc-quantity {
+          border-radius: 8px !important;
+          font-family: 'Roboto', Arial, sans-serif !important;
+          border: 1px solid #CFD0D1 !important;
+        }
+        
+        /* Order summary section */
+        #fc .fc-order-summary,
+        #fc .fc-cart-summary-label, 
+        #fc .fc-summary-label {
+          font-family: 'Recoleta', sans-serif !important;
+          font-weight: 500 !important;
+          color: #1a1a1a !important;
+        }
+        
+        /* Go button for ZIP code */
+        #fc input[type="button"],
+        #fc button:not([type="submit"]) {
+          background-color: #7997A1 !important;
+          color: white !important;
+          border: none !important;
+          border-radius: 8px !important;
+          font-family: 'Recoleta', sans-serif !important;
+          transition: all 0.3s !important;
+        }
+        
+        #fc input[type="button"]:hover,
+        #fc button:not([type="submit"]):hover {
+          background-color: #000000 !important;
+          color: #B36008 !important;
+        }
+        
+        /* Credit card area styling */
+        #fc .fc-payment-method {
+          background-color: #f7f7f7 !important;
+          border-radius: 8px !important;
+          padding: 15px !important;
+          border: 1px solid #eeeeee !important;
+        }
+        
+        /* Credit card icons */
+        #fc .fc-cc-icons {
+          background-color: rgba(193, 219, 155, 0.3) !important;
+          border-radius: 4px !important;
+          padding: 10px !important;
+        }
+        
+        /* Remove item buttons */
+        #fc .fc-cart-item-remove {
+          color: #999 !important;
+          transition: color 0.3s !important;
+        }
+        
+        #fc .fc-cart-item-remove:hover {
+          color: #B36008 !important;
+        }
+        
+        /* Checkboxes */
+        #fc input[type="checkbox"] {
+          border: 1px solid #7997A1 !important;
+        }
+        
+        #fc input[type="checkbox"]:checked {
+          background-color: #7997A1 !important;
+        }
+        
+        /* Country selection dropdown */
+        #fc .fc-country-select {
+          font-family: 'Roboto', Arial, sans-serif !important;
+        }
+        
+        /* Font handling for Recoleta */
+        @font-face {
+          font-family: 'Recoleta';
+          src: url('/fonts/Recoleta-Medium.woff2') format('woff2');
+          font-weight: 500;
+          font-style: normal;
+          font-display: swap;
+        }
+    </style>
+
+    {% for css_file_href in config.css_files %}
+    <link href="{{ css_file_href }}" rel="stylesheet" media="all">
+    {% endfor %}
+
+    {{ fc_header_content|raw }}
+    </head>
+
+<body data-fc-context='{"cart_is_fullpage":true}'>
+
+    <main id="fc">
+        {% set cart_is_fullpage = true %}
+        <div class="fc-context--cart-fullpage" data-fc-container="cart">
+            {% embed 'cart.inc.twig' %}
+            {% endembed %}
+        </div>
+    </main>
+
+    {% include template_from_string(fc_footer_content) %}
+    </body>
+
+</html>
